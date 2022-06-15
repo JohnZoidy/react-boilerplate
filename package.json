@@ -6,7 +6,6 @@
   "scripts": {
     "test": "test -s",
     "start": "webpack serve",
-    "install": "ci",
     "build": "build",
     "lint": "eslint . --ext js,jsx",
     "update": "npm-check-updates"
