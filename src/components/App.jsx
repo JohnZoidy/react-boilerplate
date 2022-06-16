@@ -22,10 +22,8 @@ const App = () => {
         It&apos;s result of Date.now:
         {date.toUTCString()}
       </p>
-      <p>
-        And it&#39;s tasks from redux state:
-        {tasks.map((task) => <div key={task.id}>{task.name}</div>)}
-      </p>
+      <p>And it&#39;s tasks from redux state:</p>
+      {tasks.map((task) => <div key={task.id}>{task.name}</div>)}
       <p>You can add a task below:</p>
       <input type="text" placeholder="Enter a task name" value={taskName} onChange={(e) => setText(e.target.value)} />
       <button type="button" onClick={addTaskHandler}>Add task</button>
