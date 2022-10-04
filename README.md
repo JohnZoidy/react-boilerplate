@@ -7,7 +7,7 @@ This is my own basic React-App template. Includes:
 - WebPack;
 - Sass;
 - Makefile;
-- Jest;
+- TypeScript;
 
 So for use you just need to use commands:
 

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { uniqueId } from 'lodash';
+import { useState } from 'react';
+import uniqueId from 'lodash.uniqueid';
 import { useSelector, useDispatch } from 'react-redux';
-import { taskSelectors, addTask } from '../slices/tasksSlice.js';
+import { taskSelectors, addTask } from '../slices/tasksSlice';
 
-const App = () => {
+const App: React.FC = () => {
   const now = Date.now();
   const date = new Date(now);
   const dispatch = useDispatch();
   const tasks = useSelector(taskSelectors.selectAll);
-  const [taskName, setText] = useState('');
+  const [taskName, setText] = useState<string>('');
   const addTaskHandler = () => {
     dispatch(addTask({ id: uniqueId('tk_'), name: taskName }));
     setText('');

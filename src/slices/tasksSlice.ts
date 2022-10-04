@@ -1,7 +1,13 @@
 /* eslint no-param-reassign: "off" */
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
+import { RootState } from '.';
 
-const tasksAdapter = createEntityAdapter();
+type TaskType = {
+  id: string;
+  name: string;
+}
+
+const tasksAdapter = createEntityAdapter<TaskType>();
 
 const initialState = tasksAdapter.getInitialState();
 
@@ -16,7 +22,7 @@ const tasksSlice = createSlice({
   },
 });
 
-export const taskSelectors = tasksAdapter.getSelectors((state) => state.tasks);
+export const taskSelectors = tasksAdapter.getSelectors((state: RootState) => state.tasks);
 
 export const {
   addTask, addTasks, removeTask, updateTask,

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 
 const path = require('path');
@@ -12,7 +13,7 @@ const mode = process.env.NODE_ENV || 'development';
 module.exports = {
   mode,
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.ts', '.tsx'],
   },
   output: {
     path: path.join(__dirname, 'dist', 'public'),
@@ -24,7 +25,7 @@ module.exports = {
       watch: false,
     },
     compress: true,
-    port: 5500,
+    port: 3000,
     host: 'localhost',
     historyApiFallback: true,
   },
@@ -39,11 +40,7 @@ module.exports = {
   ],
   module: {
     rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: 'babel-loader',
-      },
+      { test: /\.ts(x)?$/, loader: 'ts-loader' },
       {
         test: /\.(jpg|svg|png|ico)$/,
         type: 'asset/resource',
